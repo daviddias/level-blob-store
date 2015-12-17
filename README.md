@@ -11,8 +11,12 @@ level-blob-store
 # Description
 
 Implements [abstract-blob-store](https://github.com/maxogden/abstract-blob-store) interface, uses leveldb as the backend storage.
-
 [leveldb is pretty awesome btw](https://www.youtube.com/watch?v=-vD33vPKcAM)
+
+Disclaimer: As Max Ogden pointed out at https://github.com/maxogden/abstract-blob-store/issues/19#issuecomment-165211290, levelDB:
+
+- LevelDB doesn't support streaming file writes, so values must fit in memory.
+- In Google LevelDB compaction is notoriously inefficient in heavy write scenarios, so writing large quantities of data will likely result in lots of CPU thrashing.
 
 # API
 
